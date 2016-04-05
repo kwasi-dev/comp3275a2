@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.logan20.comp3275a2.GyroscopeActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Gyroscope Readings"
+        android:id="@+id/idGyroHead"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/idGyroX"
+        android:layout_below="@+id/idGyroHead"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="82dp"
+        android:hint="Holds the gyroscope&apos;s x value" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/idGyroY"
+        android:layout_below="@+id/idGyroX"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
+        android:hint="Holds the gyroscope&apos;s y value" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/idGyroZ"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:hint="Holds the gyroscope&apos;s z value" />
+
+</RelativeLayout>

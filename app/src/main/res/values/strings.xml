@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">COMP3275A2</string>
+
+    <string-array name="mainMenuOptions">
+        <item>Accelerometer Sensor Readings</item>
+        <item>Gyroscope Sensor Readings</item>
+        <item>Proximity Sensor Readings</item>
+        <item>Retrieve GPS Location</item>
+        <item>Bluetooth</item>
+        <item>Boot time Location</item>
+        <item>All Stored Locations</item>
+    </string-array>
+</resources>
