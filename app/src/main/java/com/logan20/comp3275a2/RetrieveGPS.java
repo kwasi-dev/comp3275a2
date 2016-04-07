@@ -18,30 +18,26 @@ import android.widget.Toast;
 
 public class RetrieveGPS extends AppCompatActivity implements LocationListener {
     protected LocationManager locationManager;
-    protected LocationListener locationListener;
-
     TextView x, y, z;
-
-    boolean isGPSEnabled = false;
-    boolean isNetworkEnabled = false;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrieve_gps);
         init();
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        checkPermiss();
+    }
+
+    private void checkPermiss() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(this, "Unable to access GPS",Toast.LENGTH_LONG).show();
         } else {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 5, locationListener);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 5, this);
         }
-
     }
+
     private void init(){
-        isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-        isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         x = (TextView) findViewById(R.id.longGPS_txt);
         y = (TextView) findViewById(R.id.latGPS_txt);
         z = (TextView) findViewById(R.id.altGPS_txt);
@@ -49,11 +45,10 @@ public class RetrieveGPS extends AppCompatActivity implements LocationListener {
 
     @Override
     public void onLocationChanged(Location location) {
-        if(location != null){
-            x.setText("X: "+ String.format("%.2f",location.getLongitude()));
-            y.setText("Y: "+ String.format("%.2f",location.getLatitude()));
-            z.setText("Z: "+ String.format("%.2f",location.getAltitude()));
-        }
+        x.setText("Current Longitude: "+ String.format("%.2f",location.getLongitude()));
+        y.setText("Current Latitude: "+ String.format("%.2f",location.getLatitude()));
+        z.setText("Current Altitude: "+ String.format("%.2f",location.getAltitude()));
+
     }
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
