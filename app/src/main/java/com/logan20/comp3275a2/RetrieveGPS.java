@@ -30,13 +30,13 @@ public class RetrieveGPS extends AppCompatActivity implements LocationListener {
 
     private void checkPermiss() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "Unable to access GPS",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Unable to access GPS", Toast.LENGTH_LONG).show();
         } else {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 5, this);
         }
     }
 
-    private void init(){
+    private void init() {
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         x = (TextView) findViewById(R.id.longGPS_txt);
         y = (TextView) findViewById(R.id.latGPS_txt);
@@ -45,11 +45,12 @@ public class RetrieveGPS extends AppCompatActivity implements LocationListener {
 
     @Override
     public void onLocationChanged(Location location) {
-        x.setText("Current Longitude: "+ String.format("%.2f",location.getLongitude()));
-        y.setText("Current Latitude: "+ String.format("%.2f",location.getLatitude()));
-        z.setText("Current Altitude: "+ String.format("%.2f",location.getAltitude()));
+        x.setText("Current Longitude: " + String.format("%.2f", location.getLongitude()));
+        y.setText("Current Latitude: " + String.format("%.2f", location.getLatitude()));
+        z.setText("Current Altitude: " + String.format("%.2f", location.getAltitude()));
 
     }
+
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
 
@@ -64,5 +65,28 @@ public class RetrieveGPS extends AppCompatActivity implements LocationListener {
     public void onProviderDisabled(String provider) {
         Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onPause() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        locationManager.removeUpdates(this);
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        checkPermiss();
     }
 }
