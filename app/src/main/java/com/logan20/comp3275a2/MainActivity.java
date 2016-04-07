@@ -45,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MENU", "Fourth option clicked");
                 startActivity(new Intent(this, RetrieveGPS.class));
                 break;
+            case 4:
+                Log.d("MENU", "Fifth option clicked");
+                startActivity(new Intent(this, BluetoothActivity.class));
+                break;
             default:
                 break;
 
