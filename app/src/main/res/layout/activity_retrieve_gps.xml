@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="GPS Readings"
-        android:id="@+id/idGPSHead"
+        android:id="@+id/GPSHead"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -22,8 +22,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:id="@+id/idGPStxt"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:hint="Holds the GPS reading" />
+        android:id="@+id/longGPS_txt"
+        android:hint="Holds the longitude value of the GPS"
+        android:layout_marginTop="76dp"
+        android:layout_below="@+id/GPSHead"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/latGPS_txt"
+        android:hint="Holds the latitude value of the GPS"
+        android:layout_below="@+id/longGPS_txt"
+        android:layout_alignLeft="@+id/longGPS_txt"
+        android:layout_alignStart="@+id/longGPS_txt"
+        android:layout_marginTop="57dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/altGPS_txt"
+        android:hint="Holds the altitude value of the GPS"
+        android:layout_marginTop="62dp"
+        android:layout_below="@+id/latGPS_txt"
+        android:layout_alignLeft="@+id/latGPS_txt"
+        android:layout_alignStart="@+id/latGPS_txt" />
+
 </RelativeLayout>
