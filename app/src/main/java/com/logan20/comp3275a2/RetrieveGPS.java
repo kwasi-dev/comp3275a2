@@ -32,7 +32,7 @@ public class RetrieveGPS extends AppCompatActivity implements LocationListener {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(this, "Unable to access GPS", Toast.LENGTH_LONG).show();
         } else {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 5, this);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, this);
         }
     }
 
