@@ -49,7 +49,14 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MENU", "Fifth option clicked");
                 startActivity(new Intent(this, BluetoothActivity.class));
                 break;
+            case 5:
+                startActivity(new Intent(this,BootTimeLocationActivity.class));
+                break;
+            case 6:
+                startActivity(new Intent(this, AllStoredLocations.class));
+                break;
             default:
+                Log.d("INVALID OPTION","Invalid Option Selected");
                 break;
 
         }
