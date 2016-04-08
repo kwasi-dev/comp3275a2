@@ -3,6 +3,7 @@ package com.logan20.comp3275a2;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by kwasi on 4/7/2016.
@@ -18,6 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(GPS_Contract.CREATE_TABLE);
+        Log.d("CREATE DB","DB CREATED SUCCESFULLY");
     }
 
     @Override

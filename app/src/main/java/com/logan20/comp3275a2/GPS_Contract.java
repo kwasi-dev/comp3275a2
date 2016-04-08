@@ -21,7 +21,7 @@ public final class GPS_Contract {
                     ");";
 
     public static abstract class GPSEntry implements BaseColumns {
-        public static final String TABLE_NAME = "GPS Locations";
+        public static final String TABLE_NAME = "GPS_Locations";
         public static final String LATITUDE = "latitude";
         public static final String LONGITUDE = "longitude";
         public static final String ALTITUDE = "altitude";
