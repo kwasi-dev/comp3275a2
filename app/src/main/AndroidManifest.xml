@@ -20,11 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name="com.logan20.comp3275a2.Broadcaster">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-            </intent-filter>
-        </receiver>
+
         <activity android:name=".AccelerometerActivity" />
         <activity android:name=".GyroscopeActivity" />
         <activity android:name=".ProximityActivity" />
@@ -32,6 +28,12 @@
         <activity android:name=".BluetoothActivity" />
         <activity android:name=".BootTimeLocationActivity" />
         <activity android:name=".AllStoredLocations"></activity>
+        <receiver android:name="com.logan20.comp3275a2.Boot">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

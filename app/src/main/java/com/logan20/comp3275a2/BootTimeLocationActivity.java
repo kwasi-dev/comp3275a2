@@ -40,7 +40,6 @@ public class BootTimeLocationActivity extends AppCompatActivity implements Locat
         if (manager != null ) {
             manager.removeUpdates(this);
             Log.d("DEREG", "Listener is deregistered");
-            Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show();
         }
     }
     private void init() {
@@ -73,9 +72,17 @@ public class BootTimeLocationActivity extends AppCompatActivity implements Locat
                 if (cartId!=-1){
                     deRegisterListener();
                     Log.d("INSERTION", "Successfully added to database");
+
                 }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(context,"Success",Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         }).start();
+
     }
 
     @Override
