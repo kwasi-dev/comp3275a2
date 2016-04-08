@@ -7,7 +7,6 @@
         <item>Proximity Sensor Readings</item>
         <item>Retrieve GPS Location</item>
         <item>Bluetooth</item>
-        <item>Boot time Location</item>
         <item>All Stored Locations</item>
     </string-array>
 </resources>

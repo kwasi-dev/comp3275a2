@@ -11,6 +11,8 @@ import android.widget.ListView;
 
 import java.util.List;
 
+//813001556
+//813117992
 public class MainActivity extends AppCompatActivity {
     ListView lv;
 
@@ -50,9 +52,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, BluetoothActivity.class));
                 break;
             case 5:
-                startActivity(new Intent(this,BootTimeLocationActivity.class));
-                break;
-            case 6:
                 startActivity(new Intent(this, AllStoredLocations.class));
                 break;
             default:
